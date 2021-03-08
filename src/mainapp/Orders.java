@@ -43,11 +43,11 @@ public class Orders extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Name", "Address", "Price", "Order Info", "Disccount Applied"
+                "Order ID", "Customer ID", "Name", "Address", "Price", "Order Info", "Order Date", "Disccount Applied"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.Boolean.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -115,27 +115,29 @@ public class Orders extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(126, 126, 126)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap(317, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton5))
+                                .addGap(126, 126, 126)
+                                .addComponent(jLabel1))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton3)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
+                                .addGap(128, 128, 128)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jButton4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jButton5))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jButton1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton3)))))
+                        .addGap(0, 272, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -144,8 +146,8 @@ public class Orders extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(42, 42, 42)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
@@ -154,7 +156,7 @@ public class Orders extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
                     .addComponent(jButton5))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -170,10 +172,12 @@ public class Orders extends javax.swing.JFrame {
         
         try{
             int orderID = Integer.valueOf(JOptionPane.showInputDialog("Please enter the order ID"));
+            int customerID = Integer.valueOf(JOptionPane.showInputDialog("Please enter the customer's ID"));
             String fname = JOptionPane.showInputDialog("What is the customers name");
             String faddress = JOptionPane.showInputDialog("What is the address");
             float orderprice = Float.valueOf(JOptionPane.showInputDialog("What is the order total?"));
             String orderinfo = JOptionPane.showInputDialog("What is the order?");
+            String orderdate = JOptionPane.showInputDialog("What is the date?");
             for(int i = 0; i<rowCounter;i++){
                 if(Integer.valueOf(mainTable.getValueAt(i, 0).toString()) == orderID){
                     isExisting = true;
@@ -182,7 +186,7 @@ public class Orders extends javax.swing.JFrame {
             }
             
             if (isExisting == false){
-                mainTable.addRow(new Object[]{orderID,fname,faddress,orderprice,orderinfo,false});
+                mainTable.addRow(new Object[]{orderID,customerID,fname,faddress,orderprice,orderinfo,orderdate,false});
                 JOptionPane.showMessageDialog(null,"New Record Added");
             }
             else if(isExisting == true){
@@ -224,13 +228,15 @@ public class Orders extends javax.swing.JFrame {
             String faddress = JOptionPane.showInputDialog("What is the address");
             float orderprice = Float.valueOf(JOptionPane.showInputDialog("What is the order total?"));
             String orderinfo = JOptionPane.showInputDialog("What is the order?");
+            String orderdate = JOptionPane.showInputDialog("What is te date?");
             Boolean orderdiscount = Boolean.valueOf(JOptionPane.showInputDialog("Discount applied, true or false?"));
             
             rowselec.setValueAt(fname, rowsel, 1);
             rowselec.setValueAt(faddress, rowsel, 2);
             rowselec.setValueAt(orderprice, rowsel, 3);
             rowselec.setValueAt(orderinfo, rowsel, 4);
-            rowselec.setValueAt(orderdiscount, rowsel, 5);
+            rowselec.setValueAt(orderdate, rowsel, 5);
+            rowselec.setValueAt(orderdiscount, rowsel, 6);
             JOptionPane.showMessageDialog(null, "Order updated");
             saveToFile();
         }
@@ -353,7 +359,7 @@ public class Orders extends javax.swing.JFrame {
 			while(br.ready()) {
 				String line = br.readLine();
 				String elements [] = line.split(",");
-                                tableMain.addRow(new Object[]{Integer.valueOf(elements[0]), elements[1], elements[2], Float.valueOf(elements[3]), elements[4], Boolean.valueOf(elements[5])});
+                                tableMain.addRow(new Object[]{Integer.valueOf(elements[0]), Integer.valueOf(elements[1]),  elements[2], elements[3], Float.valueOf(elements[4]), elements[5], elements[6], Boolean.valueOf(elements[7])});
 			}
 			br.close();
 			fr.close();
@@ -370,7 +376,7 @@ public class Orders extends javax.swing.JFrame {
 			FileWriter fw = new FileWriter("orders.txt");
 			BufferedWriter bw = new BufferedWriter(fw);
 			for (int i = 0; i< jTable1.getRowCount(); i++) {
-                            bw.append(String.valueOf(tableMain.getValueAt(i, 0)) + "," + tableMain.getValueAt(i, 1) + "," + tableMain.getValueAt(i, 2) + "," + String.valueOf(tableMain.getValueAt(i, 3)) + "," + tableMain.getValueAt(i, 4)+ "," + String.valueOf(tableMain.getValueAt(i, 5)) + "\n");
+                            bw.append(String.valueOf(tableMain.getValueAt(i, 0)) + "," + String.valueOf(tableMain.getValueAt(i, 1)) + "," + tableMain.getValueAt(i, 2) + "," + tableMain.getValueAt(i, 3) + "," + String.valueOf(tableMain.getValueAt(i, 4)) + "," + tableMain.getValueAt(i, 5)+ "," +  tableMain.getValueAt(i, 6)+ "," + String.valueOf(tableMain.getValueAt(i, 7)) + "\n");
                         }
 			bw.close();
 			fw.close();
