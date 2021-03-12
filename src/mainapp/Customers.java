@@ -353,6 +353,13 @@ public class Customers extends javax.swing.JFrame {
         int CustomerID = (int) tableMain.getValueAt(selectedRow, 0);
 
         try {
+                        // Clears orders table
+                        int rowCount = tableOrders.getRowCount();
+                        for (int i = 0; i < rowCount; i++) {
+                            tableOrders.removeRow(i);
+                        }
+                        
+                        // Enters new orders info selected
 			FileReader fr = new FileReader("orders.txt");
 			BufferedReader br = new BufferedReader(fr);
 			while(br.ready()) {
