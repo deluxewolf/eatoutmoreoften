@@ -4,6 +4,7 @@ import java.awt.HeadlessException;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.io.*;
+import org.jasypt.util.text.BasicTextEncryptor;
 
 /**
  *
@@ -266,13 +267,16 @@ public class discountForm extends javax.swing.JFrame {
     }
     
     public void readFromFile(){
-        DefaultTableModel tableMain = (DefaultTableModel) jTable1.getModel(); 
+        DefaultTableModel tableMain = (DefaultTableModel) jTable1.getModel();
+        BasicTextEncryptor encryptor = new BasicTextEncryptor();
+        encryptor.setPassword("L,t5xs`zM\\A(\\Yg)");
 
         try {
 			FileReader fr = new FileReader("discounts.txt");
 			BufferedReader br = new BufferedReader(fr);
 			while(br.ready()) {
-				String line = br.readLine();
+				String templine = br.readLine();
+                                String line = encryptor.decrypt(templine);
 				String elements [] = line.split(",");
                                 tableMain.addRow(new Object[]{elements[0], Integer.valueOf(elements[1]), Float.valueOf(elements[2])});
 			}
@@ -286,12 +290,16 @@ public class discountForm extends javax.swing.JFrame {
     
     public void saveToFile(){
         try {
-                    DefaultTableModel tableMain = (DefaultTableModel) jTable1.getModel(); 
+                    DefaultTableModel tableMain = (DefaultTableModel) jTable1.getModel();
+                    BasicTextEncryptor encryptor = new BasicTextEncryptor();
+                    encryptor.setPassword("L,t5xs`zM\\A(\\Yg)");
 
 			FileWriter fw = new FileWriter("discounts.txt");
 			BufferedWriter bw = new BufferedWriter(fw);
 			for (int i = 0; i< jTable1.getRowCount(); i++) {
-                            bw.append(String.valueOf(tableMain.getValueAt(i, 0)) + "," + String.valueOf(tableMain.getValueAt(i, 1)) + "," + String.valueOf(tableMain.getValueAt(i, 2)) + "\n");
+                            String templine = String.valueOf(tableMain.getValueAt(i, 0)) + "," + String.valueOf(tableMain.getValueAt(i, 1)) + "," + String.valueOf(tableMain.getValueAt(i, 2));
+                            String line = encryptor.encrypt(templine);
+                            bw.append(line + "\n");
                         }
 			bw.close();
 			fw.close();

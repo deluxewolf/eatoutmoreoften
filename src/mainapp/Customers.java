@@ -5,6 +5,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.io.*;
 import java.util.*;
+import org.jasypt.util.text.BasicTextEncryptor;
+import org.jasypt.util.text.AES256TextEncryptor;
 
 /**
  *
@@ -327,13 +329,16 @@ public class Customers extends javax.swing.JFrame {
     }
     
     public void readFromFile(){
-        DefaultTableModel tableMain = (DefaultTableModel) jTable1.getModel(); 
+        DefaultTableModel tableMain = (DefaultTableModel) jTable1.getModel();
+        BasicTextEncryptor encryptor = new BasicTextEncryptor();
+        encryptor.setPassword("bmvZc`3JEWU4D/<\"");
 
         try {
 			FileReader fr = new FileReader("customers.txt");
 			BufferedReader br = new BufferedReader(fr);
 			while(br.ready()) {
-				String line = br.readLine();
+				String templine = br.readLine();
+                                String line = encryptor.decrypt(templine);
 				String elements [] = line.split(",");
                                 tableMain.addRow(new Object[]{Integer.valueOf(elements[0]), elements[1], elements[2], elements[3]});
 			}
@@ -348,6 +353,8 @@ public class Customers extends javax.swing.JFrame {
     public void readOrders(){
         DefaultTableModel tableMain = (DefaultTableModel) jTable1.getModel();
         DefaultTableModel tableOrders = (DefaultTableModel) jTable2.getModel();
+        BasicTextEncryptor encryptor = new BasicTextEncryptor();
+                    encryptor.setPassword("L-^7zmfL[AtkA~{x");
         
         int selectedRow = jTable1.getSelectedRow();
         int CustomerID = (int) tableMain.getValueAt(selectedRow, 0);
@@ -363,7 +370,8 @@ public class Customers extends javax.swing.JFrame {
 			FileReader fr = new FileReader("orders.txt");
 			BufferedReader br = new BufferedReader(fr);
 			while(br.ready()) {
-				String line = br.readLine();
+				String templine = br.readLine();
+                                String line = encryptor.decrypt(templine);
 				String elements [] = line.split(",");
                                 if(Integer.valueOf(elements[1])==CustomerID){
                                     tableOrders.addRow(new Object[]{Integer.valueOf(elements[0]), elements[6], Float.valueOf(elements[4]), elements[5]});
@@ -379,12 +387,16 @@ public class Customers extends javax.swing.JFrame {
     
     public void saveToFile(){
         try {
-                    DefaultTableModel tableMain = (DefaultTableModel) jTable1.getModel(); 
+                    DefaultTableModel tableMain = (DefaultTableModel) jTable1.getModel();
+                    BasicTextEncryptor encryptor = new BasicTextEncryptor();
+                    encryptor.setPassword("bmvZc`3JEWU4D/<\"");
 
 			FileWriter fw = new FileWriter("customers.txt");
 			BufferedWriter bw = new BufferedWriter(fw);
 			for (int i = 0; i< jTable1.getRowCount(); i++) {
-                            bw.append(String.valueOf(tableMain.getValueAt(i, 0)) + "," + tableMain.getValueAt(i, 1) + "," + tableMain.getValueAt(i, 2)+ "," +  tableMain.getValueAt(i, 3)+ "," + "\n");
+                            String tempLine = String.valueOf(tableMain.getValueAt(i, 0)) + "," + tableMain.getValueAt(i, 1) + "," + tableMain.getValueAt(i, 2)+ "," +  tableMain.getValueAt(i, 3)+",";
+                            String line = encryptor.encrypt(tempLine);
+                            bw.append(line + "\n");
                         }
 			bw.close();
 			fw.close();

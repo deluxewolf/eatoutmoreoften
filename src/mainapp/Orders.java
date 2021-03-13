@@ -5,6 +5,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.io.*;
 import java.util.*;
+import org.jasypt.util.text.BasicTextEncryptor;
 
 /**
  *
@@ -225,18 +226,20 @@ public class Orders extends javax.swing.JFrame {
         
         try{
             String fname = JOptionPane.showInputDialog("What is the customers name");
+            Integer cid = Integer.valueOf(JOptionPane.showInputDialog("What is the customers ID"));
             String faddress = JOptionPane.showInputDialog("What is the address");
             float orderprice = Float.valueOf(JOptionPane.showInputDialog("What is the order total?"));
             String orderinfo = JOptionPane.showInputDialog("What is the order?");
             String orderdate = JOptionPane.showInputDialog("What is te date?");
             Boolean orderdiscount = Boolean.valueOf(JOptionPane.showInputDialog("Discount applied, true or false?"));
             
-            rowselec.setValueAt(fname, rowsel, 1);
-            rowselec.setValueAt(faddress, rowsel, 2);
-            rowselec.setValueAt(orderprice, rowsel, 3);
-            rowselec.setValueAt(orderinfo, rowsel, 4);
-            rowselec.setValueAt(orderdate, rowsel, 5);
-            rowselec.setValueAt(orderdiscount, rowsel, 6);
+            rowselec.setValueAt(fname, rowsel, 2);
+            rowselec.setValueAt(cid, rowsel, 1);
+            rowselec.setValueAt(faddress, rowsel, 3);
+            rowselec.setValueAt(orderprice, rowsel, 4);
+            rowselec.setValueAt(orderinfo, rowsel, 5);
+            rowselec.setValueAt(orderdate, rowsel, 6);
+            rowselec.setValueAt(orderdiscount, rowsel, 7);
             JOptionPane.showMessageDialog(null, "Order updated");
             saveToFile();
         }
@@ -262,7 +265,7 @@ public class Orders extends javax.swing.JFrame {
         try{
             if(discountCodeAvailable){
                 
-                boolean disapply = (boolean) maintable.getValueAt(rowsel, 5);
+                boolean disapply = (boolean) maintable.getValueAt(rowsel, 7);
                 
                 if(!disapply){
 
@@ -280,11 +283,11 @@ public class Orders extends javax.swing.JFrame {
                             System.out.println("Code found!");
 
                             if(0 < activations){
-                                float oprice = (float) maintable.getValueAt(rowsel, 3);
+                                float oprice = (float) maintable.getValueAt(rowsel, 4);
                                 float newprice = oprice - (oprice * dpercent) / 100;
-                                maintable.setValueAt(newprice,rowsel,3);
+                                maintable.setValueAt(newprice,rowsel,4);
                                 disc.setActivations(activations -= 1);
-                                maintable.setValueAt(true, rowsel, 5);
+                                maintable.setValueAt(true, rowsel, 7);
                                 saveDiscounts();
                                 saveToFile();
                                 codecheck = true;
@@ -351,13 +354,16 @@ public class Orders extends javax.swing.JFrame {
     }
     
     public void readFromFile(){
-        DefaultTableModel tableMain = (DefaultTableModel) jTable1.getModel(); 
+        DefaultTableModel tableMain = (DefaultTableModel) jTable1.getModel();
+        BasicTextEncryptor encryptor = new BasicTextEncryptor();
+        encryptor.setPassword("L-^7zmfL[AtkA~{x");
 
         try {
 			FileReader fr = new FileReader("orders.txt");
 			BufferedReader br = new BufferedReader(fr);
 			while(br.ready()) {
-				String line = br.readLine();
+				String templine = br.readLine();
+                                String line = encryptor.decrypt(templine);
 				String elements [] = line.split(",");
                                 tableMain.addRow(new Object[]{Integer.valueOf(elements[0]), Integer.valueOf(elements[1]),  elements[2], elements[3], Float.valueOf(elements[4]), elements[5], elements[6], Boolean.valueOf(elements[7])});
 			}
@@ -369,14 +375,19 @@ public class Orders extends javax.swing.JFrame {
 		}
     }
     
+    
     public void saveToFile(){
         try {
-                    DefaultTableModel tableMain = (DefaultTableModel) jTable1.getModel(); 
+                    DefaultTableModel tableMain = (DefaultTableModel) jTable1.getModel();
+                    BasicTextEncryptor encryptor = new BasicTextEncryptor();
+                    encryptor.setPassword("L-^7zmfL[AtkA~{x");
 
 			FileWriter fw = new FileWriter("orders.txt");
 			BufferedWriter bw = new BufferedWriter(fw);
 			for (int i = 0; i< jTable1.getRowCount(); i++) {
-                            bw.append(String.valueOf(tableMain.getValueAt(i, 0)) + "," + String.valueOf(tableMain.getValueAt(i, 1)) + "," + tableMain.getValueAt(i, 2) + "," + tableMain.getValueAt(i, 3) + "," + String.valueOf(tableMain.getValueAt(i, 4)) + "," + tableMain.getValueAt(i, 5)+ "," +  tableMain.getValueAt(i, 6)+ "," + String.valueOf(tableMain.getValueAt(i, 7)) + "\n");
+                            String templine = String.valueOf(tableMain.getValueAt(i, 0)) + "," + String.valueOf(tableMain.getValueAt(i, 1)) + "," + tableMain.getValueAt(i, 2) + "," + tableMain.getValueAt(i, 3) + "," + String.valueOf(tableMain.getValueAt(i, 4)) + "," + tableMain.getValueAt(i, 5)+ "," +  tableMain.getValueAt(i, 6)+ "," + String.valueOf(tableMain.getValueAt(i, 7)) ;
+                            String line = encryptor.encrypt(templine);
+                            bw.append(line + "\n");
                         }
 			bw.close();
 			fw.close();
@@ -387,13 +398,17 @@ public class Orders extends javax.swing.JFrame {
 		}
     }
     
+    
     public void loadDiscounts(){
         try {
 			FileReader fr = new FileReader("discounts.txt");
 			BufferedReader br = new BufferedReader(fr);
+                        BasicTextEncryptor de = new BasicTextEncryptor();
+                        de.setPassword("L,t5xs`zM\\A(\\Yg)");
 			discountCodes.clear();
 			while(br.ready()) {
-				String line = br.readLine();
+				String templine = br.readLine();
+                                String line = de.decrypt(templine);
 				String elements [] = line.split(",");
                                 discountCodes.add(new discounts(elements[0], Integer.valueOf(elements[1]), Float.valueOf(elements[2])));
 			}
@@ -409,8 +424,13 @@ public class Orders extends javax.swing.JFrame {
             try {
                     FileWriter fw = new FileWriter("discounts.txt");
                     BufferedWriter bw = new BufferedWriter(fw);
+                    BasicTextEncryptor de = new BasicTextEncryptor();
+                    de.setPassword("L,t5xs`zM\\A(\\Yg)");
+                        
                     for (discounts dc:discountCodes) {
-                            bw.append((String.join(",", dc.getDiscountCode(), String.valueOf(dc.getActivations()), String.valueOf(dc.getDprice())))+"\n");
+                        String templine = String.join(",", dc.getDiscountCode(), String.valueOf(dc.getActivations()), String.valueOf(dc.getDprice()));
+                        String line = de.encrypt(templine);
+                        bw.append(line +"\n");
                     }
                     bw.close();
                     fw.close();
