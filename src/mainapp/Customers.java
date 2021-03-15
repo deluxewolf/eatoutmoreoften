@@ -6,7 +6,6 @@ import javax.swing.table.DefaultTableModel;
 import java.io.*;
 import java.util.*;
 import org.jasypt.util.text.BasicTextEncryptor;
-import org.jasypt.util.text.AES256TextEncryptor;
 
 /**
  *
@@ -30,14 +29,13 @@ public class Customers extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Customer Panel -  Eat out 2 help out");
+        setTitle("Customer Panel -  Eat out more often");
         setResizable(false);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -98,13 +96,6 @@ public class Customers extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Exit");
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
-            }
-        });
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -150,15 +141,13 @@ public class Customers extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(128, 128, 128)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1)
-                                    .addComponent(jButton4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton5)
                                     .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jButton1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jButton2)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton3))
-                                    .addComponent(jButton5))))
+                                        .addComponent(jButton3)))))
                         .addGap(0, 152, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -186,9 +175,7 @@ public class Customers extends javax.swing.JFrame {
                     .addComponent(jButton2)
                     .addComponent(jButton3))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                .addComponent(jButton5)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -270,19 +257,11 @@ public class Customers extends javax.swing.JFrame {
             saveToFile();
         }
         catch(HeadlessException | NumberFormatException ex){
-            JOptionPane.showMessageDialog(null, "An error occured while updating the order!");
+            JOptionPane.showMessageDialog(null, "An error occured while updating the customer info!");
             
         }
          
     }//GEN-LAST:event_jButton3MouseClicked
-
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        saveToFile();
-        mainApp dashboardapp = new mainApp();
-        dashboardapp.main(null);
-        this.dispose();
-        
-    }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         readOrders();
@@ -412,7 +391,6 @@ public class Customers extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
