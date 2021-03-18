@@ -151,6 +151,10 @@ public class Users extends javax.swing.JFrame {
             else if(isExisting == true){
                 JOptionPane.showMessageDialog(null,"The record was not added!");
             }
+			
+			if(!username.equals("Admin") || !username.equals("User")){
+				JOptionPane.showMessageDialog(null, "You have seemed to entered an invalid account type, please update it!");
+			}
         }
         catch (HeadlessException | NumberFormatException ex){
             JOptionPane.showMessageDialog(null,"An error occured!");
