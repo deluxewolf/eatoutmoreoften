@@ -1,0 +1,16 @@
+Medium +£5
+Sausage +80p
+Pineapple +80p
+Red Onion +80p
+Peppers +80p
+Mushroom +80p
+Pepperoni +80p
+French Fries Large +£1.30
+Spicy Chicken Wings x10 +£6
+Garlic Bread With Cheese +£2.20
+Garlic Bread +£1.70
+Spicy Chicken Wings x5 +£3.50
+French Fries Regular +£1
+Diet Coke +70p
+Pepsi +70p
+Tango +70p

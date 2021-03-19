@@ -1,0 +1,19 @@
+ID:1
+Name:hamzah
+Number:09999
+Address:adrees 1
+ x2 Spring Rolls +99p
+ Tomato Soup +99p
+Enchiladas   +£5.00
+Spaghetti  +£4.00
+Pasta +£4.00
+Quesada +£3.00
+Chicken Pitta +£2.00
+Spicy Chicken Wings x5 +£3.50
+Garlic Bread +£1.70
+Spicy Chicken Wings x10 +£6
+Garlic Bread With Cheese +£2.20
+Coleslaw +70p
+Diet Coke +70p
+Pepsi +70p
+Tango +70p

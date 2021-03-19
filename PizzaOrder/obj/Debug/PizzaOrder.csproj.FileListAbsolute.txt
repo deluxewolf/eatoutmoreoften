@@ -1,0 +1,32 @@
+U:\Visual Studio 2017\Projects\PizzaOrder\PizzaOrder\bin\Debug\PizzaOrder.exe.config
+U:\Visual Studio 2017\Projects\PizzaOrder\PizzaOrder\bin\Debug\PizzaOrder.exe
+U:\Visual Studio 2017\Projects\PizzaOrder\PizzaOrder\bin\Debug\PizzaOrder.pdb
+U:\Visual Studio 2017\Projects\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.Form1.resources
+U:\Visual Studio 2017\Projects\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.Properties.Resources.resources
+U:\Visual Studio 2017\Projects\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.csproj.GenerateResource.Cache
+U:\Visual Studio 2017\Projects\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.csproj.CoreCompileInputs.cache
+U:\Visual Studio 2017\Projects\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.exe
+U:\Visual Studio 2017\Projects\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.pdb
+U:\Visual Studio 2017\Projects\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.csprojResolveAssemblyReference.cache
+C:\Users\hamza\Downloads\PizzaOrder\PizzaOrder\PizzaOrder\bin\Debug\PizzaOrder.exe.config
+C:\Users\hamza\Downloads\PizzaOrder\PizzaOrder\PizzaOrder\bin\Debug\PizzaOrder.exe
+C:\Users\hamza\Downloads\PizzaOrder\PizzaOrder\PizzaOrder\bin\Debug\PizzaOrder.pdb
+C:\Users\hamza\Downloads\PizzaOrder\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.csprojAssemblyReference.cache
+C:\Users\hamza\Downloads\PizzaOrder\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.Form1.resources
+C:\Users\hamza\Downloads\PizzaOrder\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.Properties.Resources.resources
+C:\Users\hamza\Downloads\PizzaOrder\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.csproj.GenerateResource.cache
+C:\Users\hamza\Downloads\PizzaOrder\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.csproj.CoreCompileInputs.cache
+C:\Users\hamza\Downloads\PizzaOrder\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.exe
+C:\Users\hamza\Downloads\PizzaOrder\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.pdb
+C:\Users\hamza\OneDrive\Documents\pizza\PizzaOrder\PizzaOrder\PizzaOrder\bin\Debug\PizzaOrder.exe.config
+C:\Users\hamza\OneDrive\Documents\pizza\PizzaOrder\PizzaOrder\PizzaOrder\bin\Debug\PizzaOrder.exe
+C:\Users\hamza\OneDrive\Documents\pizza\PizzaOrder\PizzaOrder\PizzaOrder\bin\Debug\PizzaOrder.pdb
+C:\Users\hamza\OneDrive\Documents\pizza\PizzaOrder\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.csprojAssemblyReference.cache
+C:\Users\hamza\OneDrive\Documents\pizza\PizzaOrder\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.Form1.resources
+C:\Users\hamza\OneDrive\Documents\pizza\PizzaOrder\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.Properties.Resources.resources
+C:\Users\hamza\OneDrive\Documents\pizza\PizzaOrder\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.csproj.GenerateResource.cache
+C:\Users\hamza\OneDrive\Documents\pizza\PizzaOrder\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.csproj.CoreCompileInputs.cache
+C:\Users\hamza\OneDrive\Documents\pizza\PizzaOrder\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.exe
+C:\Users\hamza\OneDrive\Documents\pizza\PizzaOrder\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.pdb
+C:\Users\hamza\OneDrive\Documents\pizza\PizzaOrder\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.Form2.resources
+C:\Users\hamza\OneDrive\Documents\pizza\PizzaOrder\PizzaOrder\PizzaOrder\obj\Debug\PizzaOrder.Form3.resources
