@@ -55,11 +55,14 @@ public class Orders extends javax.swing.JFrame {
             }
         });
         jTable1.setDragEnabled(true);
+        jTable1.setSelectionBackground(java.awt.Color.orange);
         jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 51));
         jLabel1.setText("Orders Panel");
 
+        jButton1.setBackground(java.awt.Color.orange);
         jButton1.setText("New Record");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -72,6 +75,7 @@ public class Orders extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(java.awt.Color.orange);
         jButton2.setText("Delete Selected Item");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -84,6 +88,7 @@ public class Orders extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(java.awt.Color.orange);
         jButton3.setText("Update Selected Item");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -96,6 +101,7 @@ public class Orders extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setBackground(java.awt.Color.orange);
         jButton5.setText("Apply Discount");
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -217,7 +223,7 @@ public class Orders extends javax.swing.JFrame {
             String faddress = JOptionPane.showInputDialog("What is the address");
             float orderprice = Float.valueOf(JOptionPane.showInputDialog("What is the order total?"));
             String orderinfo = JOptionPane.showInputDialog("What is the order?");
-            String orderdate = JOptionPane.showInputDialog("What is te date?");
+            String orderdate = JOptionPane.showInputDialog("What is the date?");
             Boolean orderdiscount = Boolean.valueOf(JOptionPane.showInputDialog("Discount applied, true or false?"));
             
             rowselec.setValueAt(fname, rowsel, 2);
