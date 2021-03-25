@@ -36,6 +36,7 @@ public class Customers extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Customer Panel -  Eat out more often");
+        setBackground(new java.awt.Color(192, 0, 0));
         setResizable(false);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -55,11 +56,14 @@ public class Customers extends javax.swing.JFrame {
             }
         });
         jTable2.setDragEnabled(true);
+        jTable2.setSelectionBackground(java.awt.Color.orange);
         jScrollPane1.setViewportView(jTable2);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 51));
         jLabel1.setText("Customers Panel");
 
+        jButton1.setBackground(java.awt.Color.orange);
         jButton1.setText("New Record");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -72,6 +76,7 @@ public class Customers extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(java.awt.Color.orange);
         jButton2.setText("Delete Selected Item");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -84,6 +89,7 @@ public class Customers extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(java.awt.Color.orange);
         jButton3.setText("Update Selected Item");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -113,10 +119,13 @@ public class Customers extends javax.swing.JFrame {
             }
         });
         jTable1.setDragEnabled(true);
+        jTable1.setSelectionBackground(java.awt.Color.orange);
         jScrollPane2.setViewportView(jTable1);
 
+        jLabel2.setForeground(new java.awt.Color(153, 0, 51));
         jLabel2.setText("Selected customer's orders:");
 
+        jButton5.setBackground(java.awt.Color.orange);
         jButton5.setText("View Orders");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,26 +143,25 @@ public class Customers extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jScrollPane1))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(128, 128, 128)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton5)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(126, 126, 126)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(128, 128, 128)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton5)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton3)))))
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton3)))
                         .addGap(0, 152, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(180, 180, 180))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()

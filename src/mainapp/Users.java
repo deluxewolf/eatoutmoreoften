@@ -45,6 +45,7 @@ public class Users extends javax.swing.JFrame {
         setTitle("Users Panel - eat out more often");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 51));
         jLabel1.setText("Users panel");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -63,8 +64,10 @@ public class Users extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jTable1.setSelectionBackground(java.awt.Color.orange);
         jScrollPane1.setViewportView(jTable1);
 
+        jButton1.setBackground(java.awt.Color.orange);
         jButton1.setText("New Record");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -72,6 +75,7 @@ public class Users extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(java.awt.Color.orange);
         jButton2.setText("Delete User");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -79,6 +83,7 @@ public class Users extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(java.awt.Color.orange);
         jButton3.setText("Update Account");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -152,8 +157,9 @@ public class Users extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"The record was not added!");
             }
 			
-			if(!username.equals("Admin") || !username.equals("User")){
+			if(!atype.equals("Admin") && !atype.equals("User")){
 				JOptionPane.showMessageDialog(null, "You have seemed to entered an invalid account type, please update it!");
+				System.out.print(atype);
 			}
         }
         catch (HeadlessException | NumberFormatException ex){
@@ -178,10 +184,19 @@ public class Users extends javax.swing.JFrame {
             String pass = JOptionPane.showInputDialog("What is the new password");
             String atype = JOptionPane.showInputDialog("Is the account a User or an Admin?");
             
-            rowselec.setValueAt(pass, rowsel, 1);
-            rowselec.setValueAt(atype, rowsel, 2);
-            JOptionPane.showMessageDialog(null, "Account updated");
-            saveToFile();
+			if (!pass.isEmpty() && !atype.isEmpty()){
+				rowselec.setValueAt(pass, rowsel, 1);
+				rowselec.setValueAt(atype, rowsel, 2);
+				JOptionPane.showMessageDialog(null, "Account updated");
+				saveToFile();
+			}
+			else{
+				JOptionPane.showMessageDialog(this, "Invalid input please enter values!");
+			}
+			if(!atype.equals("Admin") && !atype.equals("User")){
+				JOptionPane.showMessageDialog(null, "You have seemed to entered an invalid account type, please update it!");
+				System.out.print(atype);
+			}
         }
         catch(HeadlessException | NumberFormatException ex){
             JOptionPane.showMessageDialog(null, "An error occured while updating the Account!");

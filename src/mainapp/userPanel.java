@@ -41,6 +41,7 @@ public class userPanel extends javax.swing.JFrame {
         setTitle("Dashboard - Eat out more often");
         setResizable(false);
 
+        jButton1.setBackground(java.awt.Color.orange);
         jButton1.setText("Orders");
         jButton1.setBorder(null);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -55,11 +56,14 @@ public class userPanel extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 51));
         jLabel1.setText("Eat out more often");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 0, 51));
         jLabel2.setText("Welcome to the main dashboard!");
 
+        jButton2.setBackground(java.awt.Color.orange);
         jButton2.setText("Discounts");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -72,6 +76,7 @@ public class userPanel extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setBackground(java.awt.Color.orange);
         jButton4.setText("Customers");
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -84,6 +89,7 @@ public class userPanel extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setBackground(java.awt.Color.orange);
         jButton5.setText("Complaints");
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -91,6 +97,7 @@ public class userPanel extends javax.swing.JFrame {
             }
         });
 
+        jButton6.setBackground(java.awt.Color.orange);
         jButton6.setText("logout");
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
